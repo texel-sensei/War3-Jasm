@@ -13,7 +13,7 @@ protected:
 	void pre_parameter() override { out << " "; }
 
 	void handle_unknown(int i) override {
-		out << std::hex << std::setw(6) << i;
+		out << "0x" << std::hex << std::setw(4) << i;
 	}
 	
 	void handle_ignored(int i) override {
