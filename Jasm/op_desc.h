@@ -2,6 +2,7 @@
 #include "opcode.h"
 #include <sstream>
 #include <iomanip>
+#include <vector>
 
 enum class par_type
 {
@@ -55,4 +56,4 @@ struct op_sig
 	}
 };
 
-extern op_sig signatures[];
+extern std::vector<op_sig> signatures;

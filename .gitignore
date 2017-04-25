@@ -241,3 +241,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Jasm/output.txt
+/Jasm/jasm_dump.txt

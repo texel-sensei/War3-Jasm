@@ -1,6 +1,6 @@
 #include "op_desc.h"
 
-op_sig signatures[] = {
+std::vector<op_sig> signatures = {
 	{}, // 0
 	{OP_ENDPROGRAM	,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
 	{}, // 2

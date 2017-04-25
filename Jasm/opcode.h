@@ -108,7 +108,9 @@ inline std::ostream& operator<<(std::ostream& os, OPCODES code) {
 	if (name) {
 		return os << op_names[code];
 	}
-	return os << std::hex << int32_t(code);
+	std::stringstream ss;
+	ss << "0x" << std::hex << int32_t(code);
+	return os << ss.str();
 }
 
 struct opcode {
