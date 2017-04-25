@@ -27,6 +27,9 @@
     <ClInclude Include="opcode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="op_desc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -34,6 +37,9 @@
     </ClCompile>
     <ClCompile Include="Jasm.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="opcode.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
