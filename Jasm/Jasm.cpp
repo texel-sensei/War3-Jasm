@@ -9,22 +9,21 @@
 #include "op_desc.h"
 #include <cassert>
 #include "op_format.h"
+#include "VM.h"
 using namespace std;
 
 int main()
 {
-	ifstream in("jasm_example.txt");
-	ofstream out("output.txt");
-	string line_str;
-	while(getline(in, line_str))
-	{
-		stringstream line(line_str);
-		int32_t partA, partB;
-		line >> partA >> partB;
+	VM vm;
+	vm.load_natives("natives.txt");
 
-		auto op = build_opcode( partA, partB );
+	auto bytecode = vm.load_bytecode("jasm_example.txt");
+	
+	ofstream out("output.txt");
+	for(auto op : bytecode)
+	{
 		assert(signatures[op.optype].code == op.optype);
-		out << format_opcode(op) << endl;
+		out << vm.format_opcode(op) << endl;
 	}
     return 0;
 }

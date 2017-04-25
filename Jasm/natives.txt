@@ -1,0 +1,5 @@
+0x2e9 CreateForce
+0x2ec ForceAddPlayer
+0x2f3 ForForce
+0x364 GetTournamentScore
+0x538 Player

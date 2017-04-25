@@ -149,18 +149,23 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SymbolTable.h" />
     <ClInclude Include="opcode.h" />
+    <ClInclude Include="optional.h" />
     <ClInclude Include="OpVisitor.h" />
     <ClInclude Include="op_desc.h" />
     <ClInclude Include="op_format.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="types.h" />
+    <ClInclude Include="VM.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Jasm.cpp" />
     <ClCompile Include="opcode.cpp" />
+    <ClCompile Include="op_desc.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="VM.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

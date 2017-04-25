@@ -39,6 +39,15 @@
     <ClInclude Include="types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="optional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolTable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -49,6 +58,12 @@
     </ClCompile>
     <ClCompile Include="opcode.cpp">
       <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="op_desc.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

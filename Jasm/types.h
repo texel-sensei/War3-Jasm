@@ -25,17 +25,26 @@ struct restricted_number : CRTPs<restricted_number<Rep, CRTPs...>>...
 
 	constexpr restricted_number()
 	{
+		check();
 	}
 
 	explicit constexpr restricted_number(S r) : num(r)
 	{
 	}
 
-	constexpr S value() const { return num; }
-	constexpr void set_value(S v) { num = v; }
+	constexpr S value() const noexcept { return num; }
+	constexpr void set_value(S v) noexcept { num = v; }
 
 private:
 	S num;
+	
+	static constexpr void check()
+	{
+		static_assert(std::is_arithmetic_v<S>, "Underlying type must be arithmetic");
+		static_assert(std::is_standard_layout_v<thistype>, "This is not standard layout!");
+		static_assert(sizeof(thistype) == sizeof(S), "Problem with size!");
+		static_assert(alignof(thistype) == alignof(S), "Problem with alignment!");
+	}
 };
 
 template<typename T>
@@ -65,12 +74,30 @@ struct hex_displ
 	}
 };
 
-using base_id = restricted_number<uint32_t, Eq_i>;
+template<typename T>
+struct hashable
+{
+	size_t hash() const noexcept
+	{
+		return static_cast<T const*>(this)->value();
+	}
+};
+
+template<typename T>
+struct NumHasher
+{
+	size_t operator()(hashable<T> h) const noexcept {
+		return h.hash();
+	}
+};
+
+template<template<typename...> class... CRTPs>
+using base_id = restricted_number<uint32_t, Eq_i, hex_displ, hashable, CRTPs...>;
 
 using Register = restricted_number<uint8_t, Eq_i, Tag<struct reg_tag>::type>;
 using Type = restricted_number<uint8_t, Eq_i, Tag<struct type_tag>::type>;
-using VariableId = restricted_number<base_id, hex_displ, Tag<struct var_tag>::type>;
-using FunctionId = restricted_number<base_id, hex_displ, Tag<struct fun_tag>::type>;
-using StringId = restricted_number<base_id, hex_displ, Tag<struct str_tag>::type>;
-using LabelId = restricted_number<base_id, hex_displ, Tag<struct lab_tag>::type>;
+using VariableId = base_id<Tag<struct var_tag>::type>;
+using FunctionId = base_id<Tag<struct fun_tag>::type>;
+using StringId   = base_id<Tag<struct str_tag>::type>;
+using LabelId    = base_id<Tag<struct lab_tag>::type>;
 
