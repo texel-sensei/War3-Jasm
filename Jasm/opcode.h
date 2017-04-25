@@ -2,6 +2,8 @@
 #include <cstdint>
 #include <string>
 #include <iostream>
+#include <sstream>
+#include "types.h"
 
 /*
  * 0x1 is used internally for saving the cur op
@@ -81,36 +83,55 @@ enum OPCODES : unsigned char {
 extern std::string type_names[9];
 extern const char* op_names[46];
 
+inline std::ostream& operator<<(std::ostream& os, Type t) {
+	auto v = t.value();
+	auto array = false;
+	if(v < 0x09)
+	{
+		return os << type_names[v];
+	}
+	
+	switch(static_cast<TYPES>(v))
+	{
+	case J_INTARRAY: os << "int[]";  break;
+	case J_REALARRAY: os << "real[]"; break;
+	case J_STRARRAY: os << "string[]"; break;
+	case J_HARRAY: os << "hdl[]";  break;
+	case J_BOOLARRAY: os << "bool[]"; break;
+	default: ;
+	}
+	return os;
+}
+
+inline std::ostream& operator<<(std::ostream& os, OPCODES code) {
+	auto name = op_names[code];
+	if (name) {
+		return os << op_names[code];
+	}
+	return os << std::hex << int32_t(code);
+}
+
 struct opcode {
-	union {
-		unsigned char r1;
-		unsigned char nfarg;
-	};
-	union {
-		unsigned char r2;
-		unsigned char usereturn;
-	};
-	union {
-		unsigned char r3;
-		unsigned char rettype;
-	};
+	unsigned char r3;
+	unsigned char r2;
+	unsigned char r1;
 	OPCODES optype;
 	int32_t arg;
+
+	std::string name() const
+	{
+		std::stringstream ss;
+		ss << optype;
+		return ss.str();
+	}
 };
 static_assert(sizeof(opcode) == 8, "Invalid size for struct opcode");
 
 inline opcode build_opcode(int32_t A, int32_t B)
 {
 	auto op = opcode();
-	*reinterpret_cast<int32_t*>(&op.r1) = A;
+	*reinterpret_cast<int32_t*>(&op) = A;
 	op.arg = B;
 	return op;
 }
 
-inline std::ostream& operator<<(std::ostream& os, OPCODES code) {
-	auto name = op_names[code];
-	if (name){
-		return os << op_names[code];
-	}
-	return os << std::hex << int32_t(code);
-}

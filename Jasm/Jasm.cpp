@@ -8,6 +8,7 @@
 #include "opcode.h"
 #include "op_desc.h"
 #include <cassert>
+#include "op_format.h"
 using namespace std;
 
 int main()
@@ -23,7 +24,7 @@ int main()
 
 		auto op = build_opcode( partA, partB );
 		assert(signatures[op.optype].code == op.optype);
-		out << signatures[op.optype].str() << endl;
+		out << format_opcode(op) << endl;
 	}
     return 0;
 }

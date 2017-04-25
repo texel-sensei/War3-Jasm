@@ -1,11 +1,7 @@
 #include "opcode.h"
 #include <string>
 
-using namespace std;
-
-namespace {
-	const char* op_unknown = nullptr;
-}
+const char* op_unknown = nullptr;
 
 const char* op_names[46] =
 {
@@ -57,6 +53,6 @@ const char* op_names[46] =
 	op_unknown
 };
 
-string type_names[9] = {
-	"unknown","unknown","null","code","integer","real","string","handle","boolean"
+std::string type_names[9] = {
+	"void","unknown","null","code","int","real","string","handle","bool"
 };

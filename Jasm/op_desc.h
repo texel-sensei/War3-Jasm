@@ -59,12 +59,12 @@ op_sig signatures[] = {
 	{}, // 0
 	{OP_ENDPROGRAM	,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
 	{}, // 2
-	{OP_FUNCTION	,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::string		},
+	{OP_FUNCTION	,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::function	},
 	{OP_ENDFUNCTION	,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
-	{OP_LOCAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::string		},
-	{OP_GLOBAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::string		},
+	{OP_LOCAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::variable	},
+	{OP_GLOBAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::variable	},
 	{OP_CONSTANT	,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
-	{OP_POPFUNCARG	,{par_type::ignored	, par_type::unknown	, par_type::type	}, par_type::variable	},
+	{OP_POPFUNCARG	,{par_type::ignored	, par_type::integer	, par_type::type	}, par_type::variable	},
 	{}, // 9
 	{}, // A
 	{OP_CLEANSTACK	,{par_type::ignored	, par_type::ignored	, par_type::integer	}, par_type::ignored	},
@@ -77,8 +77,8 @@ op_sig signatures[] = {
 	{OP_SETARRAY	,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
 	{OP_PUSH		,{par_type::unknown	, par_type::unknown	, par_type::reg		}, par_type::unknown	},
 	{OP_SETRIGHT	,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
-	{OP_NATIVE		,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::function	},
-	{OP_JASSCALL	,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::function	},
+	{OP_NATIVE		,{par_type::ignored	, par_type::ignored	, par_type::ignored }, par_type::function	},
+	{OP_JASSCALL	,{par_type::ignored	, par_type::ignored	, par_type::ignored }, par_type::function	},
 	{OP_I2R			,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
 	{OP_AND			,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
 	{OP_OR			,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
@@ -96,7 +96,7 @@ op_sig signatures[] = {
 	{OP_NEGATE		,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
 	{OP_NOT			,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
 	{OP_RETURN		,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
-	{OP_LABEL		,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
+	{OP_LABEL		,{par_type::ignored	, par_type::ignored	, par_type::ignored }, par_type::jmp_dest	},
 	{OP_JUMPIFTRUE	,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
 	{OP_JUMPIFFALSE ,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
 	{OP_JUMP		,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	}

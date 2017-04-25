@@ -30,6 +30,15 @@
     <ClInclude Include="op_desc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="op_format.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
