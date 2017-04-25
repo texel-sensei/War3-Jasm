@@ -4,23 +4,23 @@
 using namespace std;
 
 namespace {
-	string op_unknown = "unknown";
+	const char* op_unknown = nullptr;
 }
 
-string op_names[46] =
+const char* op_names[46] =
 {
+	nullptr,
+	"endprogram",
 	op_unknown,
-	op_unknown,
-	"jump",
-	"func_start",
-	"func_end",
+	"func",
+	"endf",
 	"local",
 	"global",
-	"constant",
-	"pop",
-	op_unknown,
+	"const",
+	"poparg",
+	"cleanstack",
 	op_unknown, // 10
-	"clean stack",
+	"cleanstack",
 	"literal",
 	"retval",
 	"getvar",
@@ -32,27 +32,27 @@ string op_names[46] =
 	"setreg",
 	"callnative",
 	"callfunc",
-	"typecast",
+	"i2r",
 	op_unknown,
 	op_unknown,
-	"==",
-	op_unknown,
-	"<=",
-	"<",
-	">=",
-	">",
+	"eq",
+	"ne",
+	"le",
+	"lt",
+	"ge",
+	"gt",
 	"add",
 	"sub",
 	"mul",
 	"div",
 	op_unknown,
-	"negate",
-	"bnot",
-	"return",
-	"jump dest",
-	"jump if true",
-	"jump if false",
-	op_unknown,
+	"neg",
+	"not",
+	"ret",
+	"label",
+	"jmpt",
+	"jmpf",
+	"jmp",
 	op_unknown,
 	op_unknown
 };

@@ -21,7 +21,7 @@ enum TYPES {
  * 0x17
  */
 
-enum OPCODES {
+enum OPCODES : unsigned char {
 	OP_ENDPROGRAM=0x1,
 	OP_FUNCTION=0x3, // _ _ rettype funcname
 	OP_ENDFUNCTION=0x4,
@@ -79,7 +79,7 @@ enum OPCODES {
 };
 
 extern std::string type_names[9];
-extern std::string op_names[46];
+extern const char* op_names[46];
 
 struct opcode {
 	union {
@@ -94,14 +94,23 @@ struct opcode {
 		unsigned char r3;
 		unsigned char rettype;
 	};
-	unsigned char optype;
-	//union {
-		int32_t arg;
-		//opcode *dest;
-	//};
+	OPCODES optype;
+	int32_t arg;
 };
 static_assert(sizeof(opcode) == 8, "Invalid size for struct opcode");
 
+inline opcode build_opcode(int32_t A, int32_t B)
+{
+	auto op = opcode();
+	*reinterpret_cast<int32_t*>(&op.r1) = A;
+	op.arg = B;
+	return op;
+}
+
 inline std::ostream& operator<<(std::ostream& os, OPCODES code) {
-	return os << op_names[code];
+	auto name = op_names[code];
+	if (name){
+		return os << op_names[code];
+	}
+	return os << std::hex << int32_t(code);
 }
