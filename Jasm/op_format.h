@@ -48,9 +48,6 @@ protected:
 	void handle_label(opcode, LabelId lab) override {
 		out << "L_" << lab;
 	}
-	void handle_string(opcode, StringId str) override {
-		out << "S_" << str;
-	}
 	void handle_integer(opcode, int32_t i) override {
 		out << std::setw(6) << i;
 	}

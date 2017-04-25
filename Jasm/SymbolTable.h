@@ -35,6 +35,14 @@ public:
 		return it->second;
 	}
 
+	auto begin() const {
+		return names.begin();
+	}
+
+	auto end() const {
+		return names.end();
+	}
+
 private:
 	std::unordered_map<Key, std::string, NumHasher<Key>> names;
 };

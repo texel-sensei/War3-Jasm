@@ -98,6 +98,5 @@ using Register = restricted_number<uint8_t, Eq_i, Tag<struct reg_tag>::type>;
 using Type = restricted_number<uint8_t, Eq_i, Tag<struct type_tag>::type>;
 using VariableId = base_id<Tag<struct var_tag>::type>;
 using FunctionId = base_id<Tag<struct fun_tag>::type>;
-using StringId   = base_id<Tag<struct str_tag>::type>;
 using LabelId    = base_id<Tag<struct lab_tag>::type>;
 

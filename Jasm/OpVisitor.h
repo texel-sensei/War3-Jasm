@@ -30,7 +30,6 @@ protected:
 	virtual void handle_type(opcode op, Type t) {};
 	virtual void handle_function(opcode op, FunctionId fun) {};
 	virtual void handle_label(opcode op, LabelId lab) {};
-	virtual void handle_string(opcode op, StringId str) {};
 	virtual void handle_integer(opcode op, int32_t i) {};
 	
 	virtual void pre_parameter(opcode op) {};
@@ -47,7 +46,6 @@ private:
 		case par_type::type:		handle_type(op, Type(p)); break;
 		case par_type::function:	handle_function(op, FunctionId(p)); break;
 		case par_type::jmp_dest:	handle_label(op, LabelId(p)); break;
-		case par_type::string:		handle_string(op, StringId(p)); break;
 		case par_type::integer:		handle_integer(op, p); break;
 		default: ;
 		}

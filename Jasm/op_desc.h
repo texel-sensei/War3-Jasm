@@ -13,7 +13,6 @@ enum class par_type
 	type,
 	function,
 	jmp_dest,
-	string,
 	integer
 };
 
@@ -27,7 +26,6 @@ inline std::ostream& operator<<(std::ostream& os, par_type pt) {
 	case par_type::type: os << "typ"; break;
 	case par_type::function: os << "fun"; break;
 	case par_type::jmp_dest: os << "lab"; break;
-	case par_type::string: os << "str"; break;
 	case par_type::integer: os << "int"; break;
 	default: ;
 	}

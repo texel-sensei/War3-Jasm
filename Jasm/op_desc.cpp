@@ -16,7 +16,7 @@ std::vector<op_sig> signatures = {
 	{OP_LITERAL		,{par_type::ignored	, par_type::type	, par_type::reg		}, par_type::integer	},
 	{OP_SETRET		,{par_type::ignored	, par_type::reg		, par_type::ignored	}, par_type::ignored	},
 	{OP_GETVAR		,{par_type::ignored	, par_type::type	, par_type::reg		}, par_type::variable	},
-	{OP_CODE		,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
+	{OP_CODE		,{par_type::ignored	, par_type::type	, par_type::reg		}, par_type::function	},
 	{OP_GETARRAY	,{par_type::type	, par_type::reg		, par_type::reg		}, par_type::variable	},
 	{OP_SETVAR		,{par_type::ignored	, par_type::ignored	, par_type::reg		}, par_type::variable	},
 	{OP_SETARRAY	,{par_type::ignored	, par_type::reg		, par_type::reg		}, par_type::variable	},

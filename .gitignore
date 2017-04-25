@@ -242,3 +242,5 @@ ModelManifest.xml
 .fake/
 /Jasm/output.txt
 /Jasm/jasm_dump.txt
+/Jasm/blank natives.j
+/Jasm/arrays.j
