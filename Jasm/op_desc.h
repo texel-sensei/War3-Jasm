@@ -1,6 +1,7 @@
 #pragma once
 #include "opcode.h"
 #include <sstream>
+#include <iomanip>
 
 enum class par_type
 {
@@ -19,7 +20,7 @@ inline std::ostream& operator<<(std::ostream& os, par_type pt) {
 	switch (pt)
 	{
 	case par_type::unknown: os << "???"; break;
-	case par_type::ignored: os << "   "; break;
+	case par_type::ignored: os << " - "; break;
 	case par_type::reg: os << "reg"; break;
 	case par_type::variable: os << "var"; break;
 	case par_type::type: os << "typ"; break;
@@ -42,12 +43,12 @@ struct op_sig
 	{
 		using namespace std;
 		stringstream ss;
-		ss
+		ss	<< left << setw(12)
 			<< code
-			<< ' ';
+			<< '\t';
 		for (const auto small_par : small_pars)
 		{
-			ss << small_par << ' ';
+			ss << small_par << '\t';
 		}
 		ss << large_par;
 		return ss.str();
@@ -55,13 +56,17 @@ struct op_sig
 };
 
 op_sig signatures[] = {
+	{}, // 0
 	{OP_ENDPROGRAM	,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
+	{}, // 2
 	{OP_FUNCTION	,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::string		},
 	{OP_ENDFUNCTION	,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
 	{OP_LOCAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::string		},
 	{OP_GLOBAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::string		},
 	{OP_CONSTANT	,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
 	{OP_POPFUNCARG	,{par_type::ignored	, par_type::unknown	, par_type::type	}, par_type::variable	},
+	{}, // 9
+	{}, // A
 	{OP_CLEANSTACK	,{par_type::ignored	, par_type::ignored	, par_type::integer	}, par_type::ignored	},
 	{OP_LITERAL		,{par_type::ignored	, par_type::type	, par_type::reg		}, par_type::integer	},
 	{OP_SETRET		,{par_type::ignored	, par_type::reg		, par_type::ignored	}, par_type::ignored	},
