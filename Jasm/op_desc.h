@@ -3,6 +3,9 @@
 #include <sstream>
 #include <iomanip>
 #include <vector>
+#include "VM.h"
+
+class VM;
 
 enum class par_type
 {
@@ -38,12 +41,12 @@ struct op_sig
 	par_type small_pars[3];
 	par_type large_par;
 
-	std::string str() const
+	std::string str(VM const& vm) const
 	{
 		using namespace std;
 		stringstream ss;
 		ss	<< left << setw(12)
-			<< code
+			<< get_opcode_name(code, vm)
 			<< '\t';
 		for (const auto small_par : small_pars)
 		{

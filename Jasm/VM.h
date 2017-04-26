@@ -12,10 +12,21 @@ public:
 		natives_.load_file(filename);
 	}
 
+	void load_op_names(std::string const& filename)
+	{
+		op_names_.load_file(filename);
+	}
+
 	std::vector<opcode> load_bytecode(std::string const& filename) const
 	{
 		using namespace std;
 		ifstream in(filename);
+		return load_bytecode(in);
+	}
+
+	std::vector<opcode> load_bytecode(std::istream& in) const
+	{
+		using namespace std;
 		string line_str;
 		vector<opcode> ops;
 		while (getline(in, line_str))
@@ -32,10 +43,20 @@ public:
 
 	std::string format_opcode(opcode op) const;
 
-	NativeTable const& natives() const { return natives_; }
+	auto const& natives() const { return natives_; }
+	auto const& op_names() const { return op_names_; }
 
 private:
 		NativeTable natives_;
+		OpNameTable op_names_;
 
 };
 
+inline std::string get_opcode_name(OPCODES code, VM const& vm)
+{
+	auto n = vm.op_names().lookup(code);
+	if (n) return *n;
+	std::stringstream ss;
+	ss << "0x" << std::hex << static_cast<int>(code);
+	return ss.str();
+}

@@ -1,12 +1,13 @@
 #pragma once
 #include "types.h"
 #include "optional.h"
+#include "opcode.h"
 #include <map>
 #include <unordered_map>
 #include <fstream>
 #include <sstream>
 
-template<typename Key>
+template<typename Key, typename Hash = std::hash<Key>>
 class SymbolTable
 {
 public:
@@ -53,8 +54,9 @@ public:
 	}
 
 private:
-	std::unordered_map<Key, std::string, NumHasher<Key>> names;
+	std::unordered_map<Key, std::string, Hash> names;
 	std::unordered_map<std::string, Key> ids;
 };
 
-using NativeTable = SymbolTable<FunctionId>;
+using NativeTable = SymbolTable<FunctionId, NumHasher<FunctionId>>;
+using OpNameTable = SymbolTable<OPCODES>;

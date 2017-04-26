@@ -8,11 +8,10 @@ std::string VM::format_opcode(opcode op) const
 
 	stringstream ss;
 	ss << left << setw(12)
-		<< op.name();
+		<< get_opcode_name(op.optype, *this);
 
 	op_format of(*this, ss);
 	of.handle_op(op);
-
 
 	return ss.str();
 }

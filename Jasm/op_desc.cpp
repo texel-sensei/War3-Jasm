@@ -3,12 +3,12 @@
 std::vector<op_sig> signatures = {
 	{}, // 0
 	{OP_ENDPROGRAM	,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
-	{}, // 2
+	{ OP_JUMP_DEPRECATED,{par_type::ignored , par_type::ignored	, par_type::ignored }, par_type::jmp_dest	},
 	{OP_FUNCTION	,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::function	},
 	{OP_ENDFUNCTION	,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
 	{OP_LOCAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::variable	},
 	{OP_GLOBAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::variable	},
-	{OP_CONSTANT	,{par_type::unknown	, par_type::unknown	, par_type::unknown	}, par_type::unknown	},
+	{OP_CONSTANT	,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::variable	},
 	{OP_POPFUNCARG	,{par_type::ignored	, par_type::integer	, par_type::type	}, par_type::variable	},
 	{}, // 9
 	{}, // A

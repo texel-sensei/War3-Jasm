@@ -1,5 +1,6 @@
 #pragma once
 #include <type_traits>
+#include <cstdint>
 #include <iostream>
 
 template <typename Rep, template <typename...> class... CRTPs>
@@ -23,7 +24,10 @@ struct restricted_number : CRTPs<restricted_number<Rep, CRTPs...>>...
 	using S = std::decay_t<typename underlying_arithmetic_type<Rep>::type>;
 	using thistype = restricted_number;
 
-	constexpr restricted_number() = default;
+	constexpr restricted_number()
+	{
+		check();
+	}
 
 	explicit constexpr restricted_number(S r) : num(r)
 	{

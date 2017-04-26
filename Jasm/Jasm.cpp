@@ -39,7 +39,10 @@ void dump_jass_code(string const& filename, VM const& vm)
 	{
 		if (!sig.code) continue;
 
-		jasscode << "\tset Jasm_Op_Names  [0x" << hex << static_cast<int>(sig.code) << "] = \"" << sig.code << "\"\n";
+		jasscode << "\tset Jasm_Op_Names  [0x" << hex << static_cast<int>(sig.code) 
+		<< "] = \"" << get_opcode_name(sig.code, vm)
+		<< "\"\n";
+		
 		for (int i = 0; i < 3; ++i) {
 			jasscode << "\tset Jasm_Op_types_" << i << "[0x"
 				<< hex << static_cast<int>(sig.code)
@@ -65,6 +68,7 @@ int main()
 {
 	VM vm;
 	vm.load_natives("natives.txt");
+	vm.load_op_names("op_names.txt");
 
 	auto bytecode = vm.load_bytecode("jasm_example.txt");
 	//auto bytecode = read_bytecode_from_preloader_file("jasm_dump.txt");
@@ -81,9 +85,9 @@ int main()
 		cerr << "File contains no bytecode!" << endl;
 	}
 
-	dump_jass_code("arrays.j", vm);
+	//dump_jass_code("arrays.j", vm);
 
-	//system("pause");
+	system("pause");
     return 0;
 }
 

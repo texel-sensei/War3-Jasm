@@ -135,6 +135,8 @@ enum OPCODES : unsigned char
 	OP_JUMP = 0x2B //Unconditional jump. Data = Label Id
 };
 
+inline std::ostream& operator<<(std::ostream& os, OPCODES t) = delete;
+
 extern std::string type_names[9];
 extern const char* op_names[46];
 
@@ -164,18 +166,6 @@ inline std::ostream& operator<<(std::ostream& os, Type t)
 	return os;
 }
 
-inline std::ostream& operator<<(std::ostream& os, OPCODES code)
-{
-	auto name = op_names[code];
-	if (name)
-	{
-		return os << op_names[code];
-	}
-	std::stringstream ss;
-	ss << "0x" << std::hex << int32_t(code);
-	return os << ss.str();
-}
-
 struct opcode
 {
 	unsigned char r3;
@@ -183,13 +173,6 @@ struct opcode
 	unsigned char r1;
 	OPCODES optype;
 	int32_t arg;
-
-	std::string name() const
-	{
-		std::stringstream ss;
-		ss << optype;
-		return ss.str();
-	}
 };
 
 static_assert(sizeof(opcode) == 8, "Invalid size for struct opcode");

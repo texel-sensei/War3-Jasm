@@ -1,11 +1,11 @@
 #include "opcode.h"
 #include <string>
 
-const char* op_unknown = nullptr;
+const char* op_unknown = "";
 
 const char* op_names[46] =
 {
-	nullptr,
+	op_unknown,
 	"endprogram",
 	op_unknown,
 	"func",
