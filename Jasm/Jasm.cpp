@@ -73,15 +73,16 @@ int main()
 	vm.load_op_names("op_names.txt");
 
 	auto p = Parser(&vm);
-	ifstream jasm("example.jasm");
-	auto parsed = p.parse_bytecode(jasm);
+	//ifstream jasm("example.jasm");
+	//auto parsed = p.parse_bytecode(jasm);
 
 	//auto bytecode = vm.load_bytecode("jasm_example.txt");
-	//auto bytecode = read_bytecode_from_preloader_file("jasm_dump.txt");
+	auto bytecode = read_bytecode_from_preloader_file("jasm_dump.txt");
 		
 	ofstream out("output.txt");
-	jasm_jass_printer printer(vm, out, "jasm");
-	printer.print_jasm(*parsed);
+	jasm_printer printer(vm, out);
+	//printer.print_jasm(*parsed);
+	printer.print_jasm(bytecode);
 
 	//dump_jass_code("arrays.j", vm);
 
