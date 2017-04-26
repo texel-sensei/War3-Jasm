@@ -23,27 +23,26 @@ struct restricted_number : CRTPs<restricted_number<Rep, CRTPs...>>...
 	using S = std::decay_t<typename underlying_arithmetic_type<Rep>::type>;
 	using thistype = restricted_number;
 
-	constexpr restricted_number()
+	constexpr restricted_number() = default;
+
+	explicit constexpr restricted_number(S r) : num(r)
 	{
 		check();
 	}
 
-	explicit constexpr restricted_number(S r) : num(r)
-	{
-	}
-
 	constexpr S value() const noexcept { return num; }
+#pragma warning(push)
+#pragma warning(disable : 4814) // disable constexpr does not add implicit const warning
 	constexpr void set_value(S v) noexcept { num = v; }
+#pragma warning(pop)
 
 private:
-	S num;
+	S num{};
 	
 	static constexpr void check()
 	{
 		static_assert(std::is_arithmetic_v<S>, "Underlying type must be arithmetic");
 		static_assert(std::is_standard_layout_v<thistype>, "This is not standard layout!");
-		static_assert(sizeof(thistype) == sizeof(S), "Problem with size!");
-		static_assert(alignof(thistype) == alignof(S), "Problem with alignment!");
 	}
 };
 

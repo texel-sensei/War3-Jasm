@@ -24,6 +24,7 @@ public:
 			string name;
 			line >> hex >> id >> name;
 			names[Key(id)] = name;
+			ids[name] = Key(id);
 		}
 	}
 
@@ -31,6 +32,14 @@ public:
 	{
 		auto it = names.find(key);
 		if (it == names.end())
+			return{};
+		return it->second;
+	}
+
+	optional<Key> lookup(std::string const& name) const
+	{
+		auto it = ids.find(name);
+		if (it == ids.end())
 			return{};
 		return it->second;
 	}
@@ -45,6 +54,7 @@ public:
 
 private:
 	std::unordered_map<Key, std::string, NumHasher<Key>> names;
+	std::unordered_map<std::string, Key> ids;
 };
 
 using NativeTable = SymbolTable<FunctionId>;

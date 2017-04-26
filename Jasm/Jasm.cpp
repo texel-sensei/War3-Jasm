@@ -66,8 +66,8 @@ int main()
 	VM vm;
 	vm.load_natives("natives.txt");
 
-	//auto bytecode = vm.load_bytecode("jasm_example.txt");
-	auto bytecode = read_bytecode_from_preloader_file("jasm_dump.txt");
+	auto bytecode = vm.load_bytecode("jasm_example.txt");
+	//auto bytecode = read_bytecode_from_preloader_file("jasm_dump.txt");
 
 	if(!bytecode.empty()) {
 		ofstream out("output.txt");
