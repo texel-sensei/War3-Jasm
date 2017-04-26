@@ -47,7 +47,7 @@ public:
 	auto const& op_names() const { return op_names_; }
 
 private:
-		NativeTable natives_;
+		FunctionTable natives_;
 		OpNameTable op_names_;
 
 };

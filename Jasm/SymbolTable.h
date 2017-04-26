@@ -24,9 +24,14 @@ public:
 			int id;
 			string name;
 			line >> hex >> id >> name;
-			names[Key(id)] = name;
-			ids[name] = Key(id);
+			register_symbol(Key(id), name);
 		}
+	}
+
+	void register_symbol(Key id, std::string const& name)
+	{
+		names[id] = name;
+		ids[name] = id;
 	}
 
 	optional<std::string> lookup(Key key) const
@@ -58,5 +63,5 @@ private:
 	std::unordered_map<std::string, Key> ids;
 };
 
-using NativeTable = SymbolTable<FunctionId, NumHasher<FunctionId>>;
+using FunctionTable = SymbolTable<FunctionId, NumHasher<FunctionId>>;
 using OpNameTable = SymbolTable<OPCODES>;
