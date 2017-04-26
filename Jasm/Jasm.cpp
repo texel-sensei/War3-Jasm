@@ -81,7 +81,6 @@ int main()
 		
 	ofstream out("output.txt");
 	jasm_jass_printer printer(vm, out, "jasm");
-	printer.show_native_ids = false;
 	printer.print_jasm(*parsed);
 
 	//dump_jass_code("arrays.j", vm);

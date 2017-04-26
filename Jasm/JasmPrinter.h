@@ -38,6 +38,7 @@ struct jasm_jass_printer : jasm_printer
 	jasm_jass_printer(VM const& vm, std::ostream& out, std::string const& array_name)
 		: jasm_printer(vm, out), array(array_name)
 	{
+		show_native_ids = false;
 	}
 
 	void prolog() override {
@@ -45,14 +46,14 @@ struct jasm_jass_printer : jasm_printer
 	}
 
 	void line_start(int line, opcode op) override {
-		out << "    set " << array << "[" << std::dec << 2*line << "] = 0x" 
+		out << "    set " << array << "[" << std::right << std::setw(4) << std::dec << 2*line << "] = 0x"
 			<< std::setw(8) << std::setfill('0') << std::hex << op.get_partA() << " // ";
 		out << std::setfill(' ');
 	}
 
 	void line_end(int line, opcode op) override {
 		out << "\n";
-		out << "    set " << array << "[" << std::dec << 2 * line + 1 << "] = 0x"
+		out << "    set " << array << "[" << std::right << std::setw(4) << std::dec << 2 * line + 1 << "] = 0x"
 			<< std::setw(8) << std::setfill('0') << std::hex << op.arg;
 		out << "\n";
 		out << std::setfill(' ');
