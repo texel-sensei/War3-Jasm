@@ -2,6 +2,9 @@
 #include "SymbolTable.h"
 #include "opcode.h"
 
+using FunctionTable = SymbolTable<FunctionId, NumHasher<FunctionId>>;
+using OpNameTable = SymbolTable<OPCODES>;
+
 class VM
 {
 public:

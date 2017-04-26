@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include "types.h"
+#include "optional.h"
 
 /*
  * 0x1 is used internally for saving the cur op
@@ -24,6 +25,7 @@ enum TYPES
 	J_HARRAY,
 	J_BOOLARRAY
 };
+
 
 /*
  * Declare types?
@@ -140,6 +142,24 @@ inline std::ostream& operator<<(std::ostream& os, OPCODES t) = delete;
 extern std::string type_names[9];
 extern const char* op_names[46];
 
+inline optional<Type> parse_type(std::string const& s)
+{
+	auto id = 0;
+	for (auto&& ts : type_names)
+	{
+		if (ts == s) return Type(id);
+		id++;
+	}
+
+	if (s.back() != ']') return {};
+	if (s == "int[]") return Type(J_INTARRAY);
+	if (s == "real[]") return Type(J_REALARRAY);
+	if (s == "string[]") return Type(J_STRARRAY);
+	if (s == "hdl[]") return Type(J_HARRAY);
+	if (s == "bool[]") return Type(J_BOOLARRAY);
+	return{};
+}
+
 inline std::ostream& operator<<(std::ostream& os, Type t)
 {
 	auto v = t.value();
@@ -172,15 +192,20 @@ struct opcode
 	unsigned char r2;
 	unsigned char r1;
 	OPCODES optype;
-	int32_t arg;
+	uint32_t arg;
+
+	uint32_t get_partA() const
+	{
+		return *reinterpret_cast<uint32_t const*>(this);
+	}
 };
 
 static_assert(sizeof(opcode) == 8, "Invalid size for struct opcode");
 
-inline opcode build_opcode(int32_t A, int32_t B)
+inline opcode build_opcode(uint32_t A, uint32_t B)
 {
 	auto op = opcode();
-	*reinterpret_cast<int32_t*>(&op) = A;
+	*reinterpret_cast<uint32_t*>(&op) = A;
 	op.arg = B;
 	return op;
 }

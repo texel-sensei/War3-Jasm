@@ -74,7 +74,7 @@
 		template<typename U>
 		 T value_or(U&& alt) const {
 			if(valid)
-				return value;
+				return value();
 			else
 				return alt;
 		}

@@ -1,7 +1,5 @@
 #pragma once
-#include "types.h"
 #include "optional.h"
-#include "opcode.h"
 #include <map>
 #include <unordered_map>
 #include <fstream>
@@ -62,6 +60,3 @@ private:
 	std::unordered_map<Key, std::string, Hash> names;
 	std::unordered_map<std::string, Key> ids;
 };
-
-using FunctionTable = SymbolTable<FunctionId, NumHasher<FunctionId>>;
-using OpNameTable = SymbolTable<OPCODES>;

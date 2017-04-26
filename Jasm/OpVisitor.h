@@ -8,38 +8,40 @@ class OpVisitor
 public:
 	virtual ~OpVisitor() = 0 {};
 
-	void handle_op(opcode op)
+	void handle_op(opcode& op)
 	{
 		start_op(op);
 		auto sig = signatures[op.optype];
-		int r1 = op.r1, r2 = op.r2, r3 = op.r3;
-		handle_parameter(op, r1, sig.small_pars[2]);
-		handle_parameter(op, r2, sig.small_pars[1]);
-		handle_parameter(op, r3, sig.small_pars[0]);
-		handle_parameter(op, op.arg, sig.large_par);
-		op.r1 = r1;
-		op.r2 = r2;
-		op.r3 = r3;
+		uint32_t r1 = op.r1, r2 = op.r2, r3 = op.r3;
+		
+		id_ = 0; handle_parameter(op, r1, sig.small_pars[2]); op.r1 = r1;
+		id_ = 1; handle_parameter(op, r2, sig.small_pars[1]); op.r2 = r2;
+		id_ = 2; handle_parameter(op, r3, sig.small_pars[0]); op.r3 = r3;
+		id_ = 3; handle_parameter(op, op.arg, sig.large_par);
+
 		end_op(op);
 	}
 
 protected:
+	int current_parameter_id() const { return id_; }
+
 	virtual void start_op(opcode& op) {}
 	virtual void end_op(opcode& op) {}
 
-	virtual void handle_unknown(opcode& op, int& i){};
-	virtual void handle_ignored(opcode& op, int& i) {};
+	virtual void handle_unknown(opcode& op, uint32_t& i){};
+	virtual void handle_ignored(opcode& op, uint32_t& i) {};
 	virtual void handle_register(opcode& op, Register& r) {};
 	virtual void handle_variable(opcode& op, VariableId& v) {};
 	virtual void handle_type(opcode& op, Type& t) {};
 	virtual void handle_function(opcode& op, FunctionId& fun) {};
 	virtual void handle_label(opcode& op, LabelId& lab) {};
-	virtual void handle_integer(opcode& op, int32_t& i) {};
+	virtual void handle_integer(opcode& op, uint32_t& i) {};
 	
 	virtual void pre_parameter(opcode& op) {};
 private:
+	int id_;
 
-	void handle_parameter(opcode& op, int& p, par_type t)
+	void handle_parameter(opcode& op, uint32_t& p, par_type t)
 	{
 		pre_parameter(op);
 		switch(t)

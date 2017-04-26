@@ -10,6 +10,8 @@
 #include <cassert>
 #include "op_format.h"
 #include "VM.h"
+#include "Parser.h"
+#include "JasmPrinter.h"
 using namespace std;
 
 vector<opcode> read_bytecode_from_preloader_file(std::string const& filename)
@@ -70,20 +72,17 @@ int main()
 	vm.load_natives("natives.txt");
 	vm.load_op_names("op_names.txt");
 
-	auto bytecode = vm.load_bytecode("jasm_example.txt");
-	//auto bytecode = read_bytecode_from_preloader_file("jasm_dump.txt");
+	auto p = Parser(&vm);
+	ifstream jasm("example.jasm");
+	auto parsed = p.parse_bytecode(jasm);
 
-	if(!bytecode.empty()) {
-		ofstream out("output.txt");
-		for(auto op : bytecode)
-		{
-			assert(signatures[op.optype].code == op.optype);
-			out << vm.format_opcode(op) << endl;
-		}
-	} else
-	{
-		cerr << "File contains no bytecode!" << endl;
-	}
+	//auto bytecode = vm.load_bytecode("jasm_example.txt");
+	//auto bytecode = read_bytecode_from_preloader_file("jasm_dump.txt");
+		
+	ofstream out("output.txt");
+	jasm_jass_printer printer(vm, out, "jasm");
+	printer.show_native_ids = false;
+	printer.print_jasm(*parsed);
 
 	//dump_jass_code("arrays.j", vm);
 

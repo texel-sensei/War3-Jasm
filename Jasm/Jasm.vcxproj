@@ -149,6 +149,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="JasmPrinter.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="SymbolTable.h" />
     <ClInclude Include="opcode.h" />
     <ClInclude Include="optional.h" />

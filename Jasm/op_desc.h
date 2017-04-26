@@ -58,3 +58,12 @@ struct op_sig
 };
 
 extern std::vector<op_sig> signatures;
+
+inline optional<Type> get_jass_type(opcode op)
+{
+	auto sig = signatures[op.optype];
+	if (sig.small_pars[0] == par_type::type) return Type(op.r3);
+	if (sig.small_pars[1] == par_type::type) return Type(op.r2);
+	if (sig.small_pars[2] == par_type::type) return Type(op.r1);
+	return{};
+}
