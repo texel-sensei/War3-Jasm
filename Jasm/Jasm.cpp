@@ -364,7 +364,6 @@ int main(int argc, char* argv[])
 
 	//dump_jass_code("arrays.j", vm);
 
-	system("pause");
     return 0;
 }
 
