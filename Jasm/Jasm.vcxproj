@@ -149,6 +149,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cxxopts.hpp" />
     <ClInclude Include="JasmPrinter.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="SymbolTable.h" />

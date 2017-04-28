@@ -1,343 +1,343 @@
-func         void               F_f2a
-poparg       int    1            V_f2b
-local        int[]              V_f2c
-local        int[]              V_f2d
-local        hdl[]              V_f2e
-local        int                V_f2f
-local        int                V_702
-local        handle             V_c1a
-local        int                V_f30
-local        handle             V_f0f
-local        int                V_f31
-local        int                V_f32
-local        bool               V_f33
-literal      R36    int          0     
-setvar       R36                V_702
-label                          L_4eb
-getvar       R37    int          V_702
-push         R37                     
-callnative                     F_538 [Player]
-setvar       R0                 V_c1a
-getvar       R38    handle       V_c1a
-push         R38                     
-calljass                       F_f28
-cleanstack   1                       
-jmpf         R0                 L_4ed
-getvar       R39    int          V_702
-push         R39                     
-getvar       R40    handle       V_c1a
-push         R40                     
-callnative                     F_364 [GetTournamentScore]
-pop          R41                     
-setvar[]     R41    R0           V_f2c
-getvar       R42    int          V_702
+func         void   -      -      F_f2a
+poparg       int    1      -      V_f2b
+local        int[]  -      -      V_f2c
+local        int[]  -      -      V_f2d
+local        hdl[]  -      -      V_f2e
+local        int    -      -      V_f2f
+local        int    -      -      V_702
+local        handle -      -      V_c1a
+local        int    -      -      V_f30
+local        handle -      -      V_f0f
+local        int    -      -      V_f31
+local        int    -      -      V_f32
+local        bool   -      -      V_f33
+literal      R36    int    -      0     
+setvar       R36    -      -      V_702
+label        -      -      -      L_4eb
+getvar       R37    int    -      V_702
+push         R37    -      -      -     
+callnative   -      -      -      F_538 [Player]F_538
+setvar       R0     -      -      V_c1a
+getvar       R38    handle -      V_c1a
+push         R38    -      -      -     
+calljass     -      -      -      F_f28
+cleanstack   0x1    -      -      -     
+jmpf         R0     -      -      L_4ed
+getvar       R39    int    -      V_702
+push         R39    -      -      -     
+getvar       R40    handle -      V_c1a
+push         R40    -      -      -     
+callnative   -      -      -      F_364 [GetTournamentScore]F_364
+pop          R41    -      -      -     
+setvar[]     R41    R0     -      V_f2c
+getvar       R42    int    -      V_702
 getvar[]     R43    R42    int    V_f2c
-push         R43                     
-literal      R44    int          0     
-pop          R45                     
-le           R45    R45    R44    0x0   
-jmpf         R45                L_4ef
-getvar       R46    int          V_702
-push         R46                     
-literal      R47    int          1     
-pop          R48                     
-setvar[]     R48    R47          V_f2c
-jmp                            L_4f0
-label                          L_4ef
-label                          L_4f0
-jmp                            L_4ee
-label                          L_4ed
-getvar       R49    int          V_702
-push         R49                     
-literal      R50    int          0     
-pop          R51                     
-setvar[]     R51    R50          V_f2c
-label                          L_4ee
-getvar       R52    int          V_702
-push         R52                     
-literal      R53    int          1     
-pop          R54                     
-add          R54    R54    R53         
-setvar       R54                V_702
-getvar       R55    int          V_702
-push         R55                     
-getvar       R56    int          V_88c
-pop          R57                     
-eq           R57    R57    R56    0x0   
-jmpt         R57                L_4ec
-jmp                            L_4eb
-label                          L_4ec
-literal      R58    int          0     
-setvar       R58                V_f2f
-literal      R59    int          0     
-setvar       R59                V_702
-label                          L_4f1
-getvar       R60    int          V_702
+push         R43    -      -      -     
+literal      R44    int    -      0     
+pop          R45    -      -      -     
+le           R45    R45    R44    -     
+jmpf         R45    -      -      L_4ef
+getvar       R46    int    -      V_702
+push         R46    -      -      -     
+literal      R47    int    -      1     
+pop          R48    -      -      -     
+setvar[]     R48    R47    -      V_f2c
+jmp          -      -      -      L_4f0
+label        -      -      -      L_4ef
+label        -      -      -      L_4f0
+jmp          -      -      -      L_4ee
+label        -      -      -      L_4ed
+getvar       R49    int    -      V_702
+push         R49    -      -      -     
+literal      R50    int    -      0     
+pop          R51    -      -      -     
+setvar[]     R51    R50    -      V_f2c
+label        -      -      -      L_4ee
+getvar       R52    int    -      V_702
+push         R52    -      -      -     
+literal      R53    int    -      1     
+pop          R54    -      -      -     
+add          R54    R54    R53    -     
+setvar       R54    -      -      V_702
+getvar       R55    int    -      V_702
+push         R55    -      -      -     
+getvar       R56    int    -      V_88c
+pop          R57    -      -      -     
+eq           R57    R57    R56    -     
+jmpt         R57    -      -      L_4ec
+jmp          -      -      -      L_4eb
+label        -      -      -      L_4ec
+literal      R58    int    -      0     
+setvar       R58    -      -      V_f2f
+literal      R59    int    -      0     
+setvar       R59    -      -      V_702
+label        -      -      -      L_4f1
+getvar       R60    int    -      V_702
 getvar[]     R61    R60    int    V_f2c
-push         R61                     
-literal      R62    int          0     
-pop          R63                     
-ne           R63    R63    R62    0x0   
-jmpf         R63                L_4f3
-getvar       R64    int          V_702
-push         R64                     
-callnative                     F_538 [Player]
-setvar       R0                 V_c1a
-getvar       R65    int          V_f2f
-push         R65                     
-literal      R66    int          0     
-pop          R67                     
-setvar[]     R67    R66          V_f2d
-getvar       R68    int          V_f2f
-push         R68                     
-callnative                     F_2e9 [CreateForce]
-pop          R69                     
-setvar[]     R69    R0           V_f2e
-getvar       R70    int          V_702
-setvar       R70                V_f30
-label                          L_4f5
-getvar       R71    int          V_f30
+push         R61    -      -      -     
+literal      R62    int    -      0     
+pop          R63    -      -      -     
+ne           R63    R63    R62    -     
+jmpf         R63    -      -      L_4f3
+getvar       R64    int    -      V_702
+push         R64    -      -      -     
+callnative   -      -      -      F_538 [Player]F_538
+setvar       R0     -      -      V_c1a
+getvar       R65    int    -      V_f2f
+push         R65    -      -      -     
+literal      R66    int    -      0     
+pop          R67    -      -      -     
+setvar[]     R67    R66    -      V_f2d
+getvar       R68    int    -      V_f2f
+push         R68    -      -      -     
+callnative   -      -      -      F_2e9 [CreateForce]F_2e9
+pop          R69    -      -      -     
+setvar[]     R69    R0     -      V_f2e
+getvar       R70    int    -      V_702
+setvar       R70    -      -      V_f30
+label        -      -      -      L_4f5
+getvar       R71    int    -      V_f30
 getvar[]     R72    R71    int    V_f2c
-push         R72                     
-literal      R73    int          0     
-pop          R74                     
-ne           R74    R74    R73    0x0   
-jmpf         R74                L_4f7
-getvar       R75    int          V_f30
-push         R75                     
-callnative                     F_538 [Player]
-setvar       R0                 V_f0f
-getvar       R76    handle       V_c1a
-push         R76                     
-getvar       R77    handle       V_f0f
-push         R77                     
-calljass                       F_cdc
-cleanstack   2                       
-jmpf         R0                 L_4f9
-getvar       R78    int          V_f2f
-push         R78                     
-getvar       R79    int          V_f2f
+push         R72    -      -      -     
+literal      R73    int    -      0     
+pop          R74    -      -      -     
+ne           R74    R74    R73    -     
+jmpf         R74    -      -      L_4f7
+getvar       R75    int    -      V_f30
+push         R75    -      -      -     
+callnative   -      -      -      F_538 [Player]F_538
+setvar       R0     -      -      V_f0f
+getvar       R76    handle -      V_c1a
+push         R76    -      -      -     
+getvar       R77    handle -      V_f0f
+push         R77    -      -      -     
+calljass     -      -      -      F_cdc
+cleanstack   0x2    -      -      -     
+jmpf         R0     -      -      L_4f9
+getvar       R78    int    -      V_f2f
+push         R78    -      -      -     
+getvar       R79    int    -      V_f2f
 getvar[]     R80    R79    int    V_f2d
-push         R80                     
-getvar       R81    int          V_f30
+push         R80    -      -      -     
+getvar       R81    int    -      V_f30
 getvar[]     R82    R81    int    V_f2c
-pop          R83                     
-add          R83    R83    R82         
-pop          R84                     
-setvar[]     R84    R83          V_f2d
-getvar       R85    int          V_f2f
+pop          R83    -      -      -     
+add          R83    R83    R82    -     
+pop          R84    -      -      -     
+setvar[]     R84    R83    -      V_f2d
+getvar       R85    int    -      V_f2f
 getvar[]     R86    R85    handle V_f2e
-push         R86                     
-getvar       R87    handle       V_f0f
-push         R87                     
-callnative                     F_2ec [ForceAddPlayer]
-getvar       R88    int          V_f30
-push         R88                     
-literal      R89    int          0     
-pop          R90                     
-setvar[]     R90    R89          V_f2c
-jmp                            L_4fa
-label                          L_4f9
-label                          L_4fa
-jmp                            L_4f8
-label                          L_4f7
-label                          L_4f8
-getvar       R91    int          V_f30
-push         R91                     
-literal      R92    int          1     
-pop          R93                     
-add          R93    R93    R92         
-setvar       R93                V_f30
-getvar       R94    int          V_f30
-push         R94                     
-getvar       R95    int          V_88c
-pop          R96                     
-eq           R96    R96    R95    0x0   
-jmpt         R96                L_4f6
-jmp                            L_4f5
-label                          L_4f6
-getvar       R97    int          V_f2f
-push         R97                     
-literal      R98    int          1     
-pop          R99                     
-add          R99    R99    R98         
-setvar       R99                V_f2f
-jmp                            L_4f4
-label                          L_4f3
-label                          L_4f4
-getvar       R100   int          V_702
-push         R100                    
-literal      R101   int          1     
-pop          R102                    
-add          R102   R102   R101        
-setvar       R102               V_702
-getvar       R103   int          V_702
-push         R103                    
-getvar       R104   int          V_88c
-pop          R105                    
-eq           R105   R105   R104   0x0   
-jmpt         R105               L_4f2
-jmp                            L_4f1
-label                          L_4f2
-literal      R106   bool         1     
-setvar       R106               V_9d1
-getvar       R107   int          V_f2f
-push         R107                    
-literal      R108   int          0     
-pop          R109                    
-ne           R109   R109   R108   0x0   
-jmpf         R109               L_4fb
-literal      R110   int          1     
-neg          0x6e   0x0    0x0    0x0   
-setvar       R110               V_f31
-literal      R111   int          1     
-neg          0x6f   0x0    0x0    0x0   
-setvar       R111               V_f32
-literal      R112   int          0     
-setvar       R112               V_702
-label                          L_4fd
-getvar       R113   int          V_702
+push         R86    -      -      -     
+getvar       R87    handle -      V_f0f
+push         R87    -      -      -     
+callnative   -      -      -      F_2ec [ForceAddPlayer]F_2ec
+getvar       R88    int    -      V_f30
+push         R88    -      -      -     
+literal      R89    int    -      0     
+pop          R90    -      -      -     
+setvar[]     R90    R89    -      V_f2c
+jmp          -      -      -      L_4fa
+label        -      -      -      L_4f9
+label        -      -      -      L_4fa
+jmp          -      -      -      L_4f8
+label        -      -      -      L_4f7
+label        -      -      -      L_4f8
+getvar       R91    int    -      V_f30
+push         R91    -      -      -     
+literal      R92    int    -      1     
+pop          R93    -      -      -     
+add          R93    R93    R92    -     
+setvar       R93    -      -      V_f30
+getvar       R94    int    -      V_f30
+push         R94    -      -      -     
+getvar       R95    int    -      V_88c
+pop          R96    -      -      -     
+eq           R96    R96    R95    -     
+jmpt         R96    -      -      L_4f6
+jmp          -      -      -      L_4f5
+label        -      -      -      L_4f6
+getvar       R97    int    -      V_f2f
+push         R97    -      -      -     
+literal      R98    int    -      1     
+pop          R99    -      -      -     
+add          R99    R99    R98    -     
+setvar       R99    -      -      V_f2f
+jmp          -      -      -      L_4f4
+label        -      -      -      L_4f3
+label        -      -      -      L_4f4
+getvar       R100   int    -      V_702
+push         R100   -      -      -     
+literal      R101   int    -      1     
+pop          R102   -      -      -     
+add          R102   R102   R101   -     
+setvar       R102   -      -      V_702
+getvar       R103   int    -      V_702
+push         R103   -      -      -     
+getvar       R104   int    -      V_88c
+pop          R105   -      -      -     
+eq           R105   R105   R104   -     
+jmpt         R105   -      -      L_4f2
+jmp          -      -      -      L_4f1
+label        -      -      -      L_4f2
+literal      R106   bool   -      0x1   
+setvar       R106   -      -      V_9d1
+getvar       R107   int    -      V_f2f
+push         R107   -      -      -     
+literal      R108   int    -      0     
+pop          R109   -      -      -     
+ne           R109   R109   R108   -     
+jmpf         R109   -      -      L_4fb
+literal      R110   int    -      1     
+neg          R110   -      -      -     
+setvar       R110   -      -      V_f31
+literal      R111   int    -      1     
+neg          R111   -      -      -     
+setvar       R111   -      -      V_f32
+literal      R112   int    -      0     
+setvar       R112   -      -      V_702
+label        -      -      -      L_4fd
+getvar       R113   int    -      V_702
 getvar[]     R114   R113   int    V_f2d
-push         R114                    
-getvar       R115   int          V_f32
-pop          R116                    
-gt           R116   R116   R115   0x0   
-jmpf         R116               L_4ff
-getvar       R117   int          V_702
-setvar       R117               V_f31
-getvar       R118   int          V_702
+push         R114   -      -      -     
+getvar       R115   int    -      V_f32
+pop          R116   -      -      -     
+gt           R116   R116   R115   -     
+jmpf         R116   -      -      L_4ff
+getvar       R117   int    -      V_702
+setvar       R117   -      -      V_f31
+getvar       R118   int    -      V_702
 getvar[]     R119   R118   int    V_f2d
-setvar       R119               V_f32
-jmp                            L_500
-label                          L_4ff
-label                          L_500
-getvar       R120   int          V_702
-push         R120                    
-literal      R121   int          1     
-pop          R122                    
-add          R122   R122   R121        
-setvar       R122               V_702
-getvar       R123   int          V_702
-push         R123                    
-getvar       R124   int          V_f2f
-pop          R125                    
-eq           R125   R125   R124   0x0   
-jmpt         R125               L_4fe
-jmp                            L_4fd
-label                          L_4fe
-literal      R126   bool         0     
-setvar       R126               V_f33
-literal      R127   int          0     
-setvar       R127               V_702
-label                          L_501
-getvar       R128   int          V_702
-push         R128                    
-getvar       R129   int          V_f31
-pop          R130                    
-ne           R130   R130   R129   0x0   
-jmpf         R130               L_503
-getvar       R131   int          V_f32
-push         R131                    
-getvar       R132   int          V_f2b
-push         R132                    
-getvar       R133   int          V_702
+setvar       R119   -      -      V_f32
+jmp          -      -      -      L_500
+label        -      -      -      L_4ff
+label        -      -      -      L_500
+getvar       R120   int    -      V_702
+push         R120   -      -      -     
+literal      R121   int    -      1     
+pop          R122   -      -      -     
+add          R122   R122   R121   -     
+setvar       R122   -      -      V_702
+getvar       R123   int    -      V_702
+push         R123   -      -      -     
+getvar       R124   int    -      V_f2f
+pop          R125   -      -      -     
+eq           R125   R125   R124   -     
+jmpt         R125   -      -      L_4fe
+jmp          -      -      -      L_4fd
+label        -      -      -      L_4fe
+literal      R126   bool   -      0x0   
+setvar       R126   -      -      V_f33
+literal      R127   int    -      0     
+setvar       R127   -      -      V_702
+label        -      -      -      L_501
+getvar       R128   int    -      V_702
+push         R128   -      -      -     
+getvar       R129   int    -      V_f31
+pop          R130   -      -      -     
+ne           R130   R130   R129   -     
+jmpf         R130   -      -      L_503
+getvar       R131   int    -      V_f32
+push         R131   -      -      -     
+getvar       R132   int    -      V_f2b
+push         R132   -      -      -     
+getvar       R133   int    -      V_702
 getvar[]     R134   R133   int    V_f2d
-pop          R135                    
-mul          R135   R135   R134        
-pop          R136                    
-lt           R136   R136   R135   0x0   
-jmpf         R136               L_505
-literal      R137   bool         1     
-setvar       R137               V_f33
-jmp                            L_506
-label                          L_505
-label                          L_506
-jmp                            L_504
-label                          L_503
-label                          L_504
-getvar       R138   int          V_702
-push         R138                    
-literal      R139   int          1     
-pop          R140                    
-add          R140   R140   R139        
-setvar       R140               V_702
-getvar       R141   int          V_702
-push         R141                    
-getvar       R142   int          V_f2f
-pop          R143                    
-eq           R143   R143   R142   0x0   
-jmpt         R143               L_502
-jmp                            L_501
-label                          L_502
-getvar       R144   bool         V_f33
-jmpf         R144               L_507
-literal      R145   int          0     
-setvar       R145               V_702
-label                          L_509
-getvar       R146   int          V_702
+pop          R135   -      -      -     
+mul          R135   R135   R134   -     
+pop          R136   -      -      -     
+lt           R136   R136   R135   -     
+jmpf         R136   -      -      L_505
+literal      R137   bool   -      0x1   
+setvar       R137   -      -      V_f33
+jmp          -      -      -      L_506
+label        -      -      -      L_505
+label        -      -      -      L_506
+jmp          -      -      -      L_504
+label        -      -      -      L_503
+label        -      -      -      L_504
+getvar       R138   int    -      V_702
+push         R138   -      -      -     
+literal      R139   int    -      1     
+pop          R140   -      -      -     
+add          R140   R140   R139   -     
+setvar       R140   -      -      V_702
+getvar       R141   int    -      V_702
+push         R141   -      -      -     
+getvar       R142   int    -      V_f2f
+pop          R143   -      -      -     
+eq           R143   R143   R142   -     
+jmpt         R143   -      -      L_502
+jmp          -      -      -      L_501
+label        -      -      -      L_502
+getvar       R144   bool   -      V_f33
+jmpf         R144   -      -      L_507
+literal      R145   int    -      0     
+setvar       R145   -      -      V_702
+label        -      -      -      L_509
+getvar       R146   int    -      V_702
 getvar[]     R147   R146   handle V_f2e
-push         R147                    
-code         R148   code         F_ef1
-push         R148                    
-callnative                     F_2f3 [ForForce]
-getvar       R149   int          V_702
-push         R149                    
-literal      R150   int          1     
-pop          R151                    
-add          R151   R151   R150        
-setvar       R151               V_702
-getvar       R152   int          V_702
-push         R152                    
-getvar       R153   int          V_f2f
-pop          R154                    
-eq           R154   R154   R153   0x0   
-jmpt         R154               L_50a
-jmp                            L_509
-label                          L_50a
-jmp                            L_508
-label                          L_507
-literal      R155   int          0     
-setvar       R155               V_702
-label                          L_50b
-getvar       R156   int          V_702
-push         R156                    
-getvar       R157   int          V_f31
-pop          R158                    
-ne           R158   R158   R157   0x0   
-jmpf         R158               L_50d
-getvar       R159   int          V_702
+push         R147   -      -      -     
+code         R148   code   -      F_ef1
+push         R148   -      -      -     
+callnative   -      -      -      F_2f3 [ForForce]F_2f3
+getvar       R149   int    -      V_702
+push         R149   -      -      -     
+literal      R150   int    -      1     
+pop          R151   -      -      -     
+add          R151   R151   R150   -     
+setvar       R151   -      -      V_702
+getvar       R152   int    -      V_702
+push         R152   -      -      -     
+getvar       R153   int    -      V_f2f
+pop          R154   -      -      -     
+eq           R154   R154   R153   -     
+jmpt         R154   -      -      L_50a
+jmp          -      -      -      L_509
+label        -      -      -      L_50a
+jmp          -      -      -      L_508
+label        -      -      -      L_507
+literal      R155   int    -      0     
+setvar       R155   -      -      V_702
+label        -      -      -      L_50b
+getvar       R156   int    -      V_702
+push         R156   -      -      -     
+getvar       R157   int    -      V_f31
+pop          R158   -      -      -     
+ne           R158   R158   R157   -     
+jmpf         R158   -      -      L_50d
+getvar       R159   int    -      V_702
 getvar[]     R160   R159   handle V_f2e
-push         R160                    
-code         R161   code         F_ef4
-push         R161                    
-callnative                     F_2f3 [ForForce]
-jmp                            L_50e
-label                          L_50d
-label                          L_50e
-getvar       R162   int          V_702
-push         R162                    
-literal      R163   int          1     
-pop          R164                    
-add          R164   R164   R163        
-setvar       R164               V_702
-getvar       R165   int          V_702
-push         R165                    
-getvar       R166   int          V_f2f
-pop          R167                    
-eq           R167   R167   R166   0x0   
-jmpt         R167               L_50c
-jmp                            L_50b
-label                          L_50c
-getvar       R168   int          V_f31
+push         R160   -      -      -     
+code         R161   code   -      F_ef4
+push         R161   -      -      -     
+callnative   -      -      -      F_2f3 [ForForce]F_2f3
+jmp          -      -      -      L_50e
+label        -      -      -      L_50d
+label        -      -      -      L_50e
+getvar       R162   int    -      V_702
+push         R162   -      -      -     
+literal      R163   int    -      1     
+pop          R164   -      -      -     
+add          R164   R164   R163   -     
+setvar       R164   -      -      V_702
+getvar       R165   int    -      V_702
+push         R165   -      -      -     
+getvar       R166   int    -      V_f2f
+pop          R167   -      -      -     
+eq           R167   R167   R166   -     
+jmpt         R167   -      -      L_50c
+jmp          -      -      -      L_50b
+label        -      -      -      L_50c
+getvar       R168   int    -      V_f31
 getvar[]     R169   R168   handle V_f2e
-push         R169                    
-code         R170   code         F_ef2
-push         R170                    
-callnative                     F_2f3 [ForForce]
-label                          L_508
-jmp                            L_4fc
-label                          L_4fb
-label                          L_4fc
-literal      R0     void         0     
-ret                                 
-endf                                
+push         R169   -      -      -     
+code         R170   code   -      F_ef2
+push         R170   -      -      -     
+callnative   -      -      -      F_2f3 [ForForce]F_2f3
+label        -      -      -      L_508
+jmp          -      -      -      L_4fc
+label        -      -      -      L_4fb
+label        -      -      -      L_4fc
+literal      R0     void   -      0x0   
+ret          -      -      -      -     
+endf         -      -      -      -     
