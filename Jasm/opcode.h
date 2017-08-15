@@ -57,8 +57,9 @@ enum OPCODES : unsigned char
 	OP_POPFUNCARG = 0x8, //Create a local var and assign a value to it directly from the caller's
 	//stack. Arg1 = Type, Arg2 = #FuncArg, Data = Variable Name
 
-	OP_TYPE = 0x9,
-	OP_EXTENDS = 0xA, //Used only by parser, ignored by VM
+	OP_EXTENDS = 0x9, //Used only by parser, ignored by VM
+	OP_TYPE = 0xA,
+
 
 	OP_CLEANSTACK = 0xB, //Pops <Arg1> values from the stack. Used after calling Jass functions,
 	//not needed when calling natives.

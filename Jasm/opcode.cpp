@@ -14,8 +14,8 @@ const char* op_names[46] =
 	"global",
 	"const",
 	"poparg",
-	"type",
-	op_unknown, // 10
+	"extend",
+	"type", // 10
 	"cleanstack",
 	"literal",
 	"mov",

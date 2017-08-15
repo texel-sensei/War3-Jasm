@@ -3,15 +3,15 @@
 std::vector<op_sig> signatures = {
 	{}, // 0
 	{OP_ENDPROGRAM	,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
-	{ OP_JUMP_DEPRECATED,{par_type::ignored , par_type::ignored	, par_type::ignored }, par_type::jmp_dest	},
+	{OP_JUMP_DEPRECATED,{par_type::ignored , par_type::ignored	, par_type::ignored }, par_type::jmp_dest	},
 	{OP_FUNCTION	,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::function	},
 	{OP_ENDFUNCTION	,{par_type::ignored	, par_type::ignored	, par_type::ignored	}, par_type::ignored	},
 	{OP_LOCAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::variable	},
 	{OP_GLOBAL		,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::variable	},
 	{OP_CONSTANT	,{par_type::ignored	, par_type::ignored	, par_type::type	}, par_type::variable	},
 	{OP_POPFUNCARG	,{par_type::ignored	, par_type::integer	, par_type::type	}, par_type::variable	},
-	{}, // 9
-	{}, // A
+	{OP_EXTENDS		,{par_type::ignored	, par_type::ignored	, par_type::ignored }, par_type::variable	},
+	{OP_TYPE		,{par_type::ignored	, par_type::ignored	, par_type::ignored }, par_type::variable	},
 	{OP_CLEANSTACK	,{par_type::ignored	, par_type::ignored	, par_type::integer	}, par_type::ignored	},
 	{OP_LITERAL		,{par_type::ignored	, par_type::type	, par_type::reg		}, par_type::integer	},
 	{OP_MOV			,{par_type::ignored	, par_type::reg		, par_type::reg		}, par_type::ignored	},
